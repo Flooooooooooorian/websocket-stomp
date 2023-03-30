@@ -41,7 +41,7 @@ function App() {
     }
 
     const subscribe = () => {
-        client?.subscribe("/chat/chat/" + sender, onMessage)
+        client?.subscribe("/chat/" + sender, onMessage)
     }
 
     const sendMessage = () => {
@@ -51,7 +51,7 @@ function App() {
             content: msg
         }
         client?.publish({
-            destination: '/chat/chat/' + reciever,
+            destination: '/chat/' + reciever,
             body: JSON.stringify(body),
             skipContentLengthHeader: true,
         })
